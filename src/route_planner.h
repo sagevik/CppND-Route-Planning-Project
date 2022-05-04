@@ -26,6 +26,11 @@ class RoutePlanner {
     RouteModel::Node *start_node;
     RouteModel::Node *end_node;
 
+    // helper function for sorting open_list
+  	static bool compare_nodes(RouteModel::Node *node1, RouteModel::Node *node2){
+    	return (node1->g_value + node1->h_value) > (node2->g_value + node2->h_value);
+    };
+
     float distance = 0.0f;
     RouteModel &m_Model;
 };
